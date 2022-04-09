@@ -1,0 +1,25 @@
+import json
+import requests
+
+def somthing():
+    try:
+        url = "https://pgglobalenterpriseuat.service-now.com/api/now/table/sc_req_item?sysparm_query=assignment_group%3Da0dda8c0db94af84b9d5f3451d961936%5Ecat_item%3D9440efd1dbe8c410766be665059619ac%5EORcat_item%3D2a9a1bb01b76fc900949a6442a4bcb6c%5Estate%3D104%5EORstate%3D30%5EORstate%3D-5%5Eassigned_to%3D%5EORassigned_to%3D887cb255db9c48508f8e22d405961994&sysparm_display_value=true&sysparm_fields=sys_id%2Cnumber%2Copened_at%2Ccat_item%2Capproval%2Cstate%2Clocation%2Cstage%2Cvariables.application_access_for%2Cvariables.select_action_for_the_account%2Cvariables.job_type_select_all_that_apply%2Cvariables.reader%2Cvariables.sampler%2Cvariables.contractor%2Cvariables.ps_contractor_labanalyst_micro%2Cvariables.ps_lab_analyst%2Cvariables.ps_lab_analyst_micro%2Cvariables.ps_lab_leader%2Cvariables.ps_lab_leader_micro%2Cvariables.env_mon_analyst%2Cvariables.env_mon_leader%2Cvariables.finished_dispositioner%2Cvariables.ps_local_master_data_admin%2Cvariables.eln_experimenter_ps_with_r_d_electronic_lab_notebook_need%2Cvariables.pg_itsm_ionname%2Cvariables.pg_itsm_name%2Cvariables.pg_itsm_name2%2Cvariables.pg_itsm_email2%2Cvariables.pg_itsm_tnum%2Cvariables.pg_itsm_emptype%2Cvariables.username_e_g_smith_jm_2%2Cvariables.time_zone%2Cvariables.site_code%2Cvariables.application%2Cvariables.caller_approver%2Cvariables.pg_itsm_appremail2%2Cvariables.role_eln_experimenter%2Cvariables.role_request_approver%2Cvariables.role_lab_analyst%2Cvariables.role_lab_leader%2Cvariables.role_contractor%2Cvariables.role_env_monitor_analyst%2Cvariables.role_env_monitor_leader%2Cvariables.role_rd_stability_admin%2Cvariables.role_rd_stability_approver%2Cvariables.role_rd_stability_coordinator%2Cvariables.role_rd_stability_sample_coordinator%2Cvariables.role_rd_qarnd%2Cvariables.role_rd_qrmaking%2Cvariables.role_rd_qrsmaf%2Cvariables.role_rd_qrstudyfilllabel%2Cvariables.select_ou_or_sector%2Cvariables.label_beauty_analytical%2Cvariables.beauty_analytical_bjic_glic_mbc_sgic"
+       # url = "https://pgglobalenterprise.service-now.com/api/now/table/sc_req_item?sysparm_query=assignment_group%3Da0dda8c0db94af84b9d5f3451d961936%5Ecat_item%3Da88a4e9cdbfc08d0766be66505961914%5EORcat_item%3D9440efd1dbe8c410766be665059619ac%5Estate%3D2%5Eassigned_to%3D887cb255db9c48508f8e22d405961994&sysparm_display_value=true&sysparm_fields=sys_id%2Cnumber%2Copened_at%2Ccat_item%2Capproval%2Cstate%2Clocation%2Cstage%2Cvariables.application_access_for%2Cvariables.select_action_for_the_account%2Cvariables.job_type_select_all_that_apply%2Cvariables.reader%2Cvariables.sampler%2Cvariables.contractor%2Cvariables.ps_contractor_labanalyst_micro%2Cvariables.ps_lab_analyst%2Cvariables.ps_lab_analyst_micro%2Cvariables.ps_lab_leader%2Cvariables.ps_lab_leader_micro%2Cvariables.env_mon_analyst%2Cvariables.env_mon_leader%2Cvariables.finished_dispositioner%2Cvariables.ps_local_master_data_admin%2Cvariables.pg_itsm_ionname%2Cvariables.pg_itsm_name%2Cvariables.pg_itsm_name2%2Cvariables.pg_itsm_email2%2Cvariables.pg_itsm_tnum%2Cvariables.pg_itsm_emptype%2Cvariables.username_e_g_smith_jm_2%2Cvariables.time_zone%2Cvariables.site_code%2Cvariables.caller_approver%2Cvariables.pg_itsm_appremail2%2Cvariables.request_approver%2Cvariables.r_d_contractor_labanalyst_micro%2Cvariables.r_d_contractor_labanalyst_performance%2Cvariables.eln_experimenter%2Cvariables.env_monitor_analyst%2Cvariables.env_monitor_leader%2Cvariables.r_d_lab_analyst_micro%2Cvariables.r_d_lab_analyst_performance%2Cvariables.lab_analyst%2Cvariables.lab_leader%2Cvariables.r_d_lab_leader_sensory%2Cvariables.reader%2Cvariables.sampler%2Cvariables.eln_reader%2Cvariables.application%2Cvariables.where_i_work%2Cvariables.media%2Cvariables.content_testing%2Cvariables.hair_product_test_lab%2Cvariables.personal_care_product_test_lab%2Cvariables.skin_product_test_lab%2Cvariables.salon%2Cvariables.sensory_lab%2Cvariables.r_d_contractor_labanalyst_packaging%2Cvariables.r_d_lab_analyst_packaging%2Cvariables.eln_experimenter_requester_packaging%2Cvariables.eln_experimenter_only%2Cvariables.r_d_stability_admin%2Cvariables.r_d_stability_approver%2Cvariables.r_d_stability_coordinator%2Cvariables.r_d_stability_sample_coordinator%2Cvariables.pg_itsm_other%2Cvariables.sensory_bc%2Cvariables.performance_lab%2Cvariables.micro%2Cvariables.upstream%2Cvariables.packaging%2Cvariables.analytical%2Cvariables.analytical_i_work_in_a_beauty_analytical_lab_in_these_areas%2Cvariables.eln_experimenter_ps_with_r_d_electronic_lab_notebook_need%2Copened_by"
+        user= "servicenowint74.im"
+        pwd= "VB1WyH03ZX9k"
+        global snow_getresponse_json
+        myrequst= requests.get(url,auth=(user,pwd))
+        snow_getresponse_json = json.loads(myrequst.content)
+        print(type(snow_getresponse_json))
+        response_result_list = snow_getresponse_json["result"]
+        return response_result_list
+    except:
+        print("Something went wrong")
+        
+a= somthing()
+print(a)
+
+#print(a[0]["variables.pg_itsm_other"])
+
+
+        
