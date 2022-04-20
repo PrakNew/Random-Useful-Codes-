@@ -34,3 +34,9 @@ new_timezone = pytz.timezone('EST')
 
 new_timezone_timestamp = old_timezone.localize(my_timestamp).astimezone(new_timezone)
 print(new_timezone_timestamp.strftime('%Y-%m-%d %H:%M:%S'))
+
+
+#delta of the time 
+from datetime import datetime, timedelta
+
+nine_hours_from_now = datetime.now() + timedelta(hours=9)
