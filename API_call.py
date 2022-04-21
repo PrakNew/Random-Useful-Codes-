@@ -17,7 +17,7 @@ def somthing():
         
 a= somthing()
 print(a)
-
+print('this is a demo.')
 #print(a[0]["variables.pg_itsm_other"])
 
 
