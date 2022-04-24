@@ -1,6 +1,9 @@
 import pandas as pd
-
+import numpy as np
 data = pd.read_csv(url, delimiter=',', na_values=False,index_col = False) # this is done for reading the csv file and storing in multidimensional array basically a 2D array 
+df = pd.DataFrame(np.random.randint(10,size=(3,2)))
+#play with pandas by using above data
+
 data=data.iloc[:,:24] # this is used to fetch specific number of rows and columns 
 cols = data.columns # returns the list of all the column headers
 data[col].fillna('') # this is used to replace all the NA in a particular col with ''
@@ -8,6 +11,7 @@ pd.DataFrame()# this is used for creating a 2D array which is complete and somet
 data.groupby(data.iloc[:, 3])# this is like sql like group by in terms of particular columns 
 data.iteritems()# this is used to create a tuple over which you can iterate over the items each column at a time
 data.reset_index(drop=True)# suppose for the first index elements in each row are [0,1,2,0,1,0,1,2,3,4]---> it needs to be converted to [0,1,2,3,4,5,6,7,8,9] 
+#basically drop=True will drop the index column created but still the indexing will be reset
 data.shape()# this returns a tuple of [rows,columns]
 np.where(data['row_sequence'] == 10, 'Table Header','Value Row')#this is a part of numpy library where we used to check if else condition and put value relatively inside a columns efficiently 
 data[data['row_type']=='Table Header'].index.tolist() #this is a special type of filtering we have applied in the data using pandas
@@ -16,6 +20,8 @@ data.iterrows()#it is like iterating over each row
 
 data.drop(data.index[index_list]) #this is basically to drop all the data at particular indexes row wise 
 df.drop(['C', 'D'], axis = 1) == df.drop(df.columns[[0, 4, 2]], axis = 1, inplace = True) #dropping the column column wise
+#inplace = True means wahi ki wahi drop kardo matlab ki dataframe ko modify kardo now ab drop karne ke baad df = df.drop karne ki jarurat nahi 
+df.drop_duplicates(subset=['col1'],keep=False)#removing duplicates from a particular column
 del df['one']==df.pop('one') #column wise
 
 df = df.append(df2)#same columns will be appended else the NAN will be present in the place which is not given
@@ -71,6 +77,9 @@ df.loc[df.index[2:5], ['country', 'tcgdp']] #this is even better method to fetch
 df.loc[df.index[[2,4]],]# this helps in fetching the specific rows only like here 2 and 4rth row only 
 print(df.loc[df.index[[2,4]],["c1","c3"]]) #used for fetching specific rows and specific columns
 #we also have a hybrid method for indexing in the dataframe to access elements 
+df.loc[(df['col1']<=0.3) & (df['col3']>=0.4)] this will return all the rows having col1 values less than 0.3 and col3 should be greater than 0.4---- thats how we apply filters in the pd.DataFrame
+
+
 df.ix[:,"A"] #this is a small example of how to use the ix[] method 
 
 df = df.set_index('country')#this will replace the normal index of 0,1,2 by country columns elements
