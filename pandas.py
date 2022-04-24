@@ -64,6 +64,9 @@ df[['<col1>', '<col2>']]# this a method to fetch all the specific columns and th
 now the question arises how can i fetch both rows and columns sidewise
 
 df.iloc[2:5, 0:4]# first part is rows and 2nd part is columns 
+**** now over here if we provide df[first][second] first should be the column name/number and second should be the Row/Index
+but if we see the df.iloc[first,second] here first is row/index and second is column
+
 df.loc[df.index[2:5], ['country', 'tcgdp']] #this is even better method to fetch using columns name which are specific if you don't know the index
 df.loc[df.index[[2,4]],]# this helps in fetching the specific rows only like here 2 and 4rth row only 
 print(df.loc[df.index[[2,4]],["c1","c3"]]) #used for fetching specific rows and specific columns
