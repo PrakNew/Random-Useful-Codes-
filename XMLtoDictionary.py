@@ -16,6 +16,8 @@ xml_data = """
 
 d = xmltodict.parse(xml_data)
 print(d['metadata']['variables.beauty_analytical_bjic_glic_mbc_sgic'])
+
+#this is when we have an xml file 
 with open(r'C:\Users\prakh\Desktop\abc.xml', 'r', encoding='utf-8') as file:
     my_xml = file.read()
 d1= xmltodict.parse(my_xml)
