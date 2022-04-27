@@ -1,6 +1,6 @@
 import json
 import requests
-
+#this is a function with whole working
 def somthing():
     try:
         url = "the API url"
