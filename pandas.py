@@ -1,8 +1,11 @@
 import pandas as pd
 import numpy as np
 data = pd.read_csv(url, delimiter=',', na_values=False,index_col = False) # this is done for reading the csv file and storing in multidimensional array basically a 2D array 
+
+############################################
 df = pd.DataFrame(np.random.randint(10,size=(3,2)))
 #play with pandas by using above data
+############################################
 
 data=data.iloc[:,:24] # this is used to fetch specific number of rows and columns 
 cols = data.columns # returns the list of all the column headers
