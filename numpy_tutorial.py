@@ -1,3 +1,4 @@
+# This tutorial is based on the questions faced in Udemy Course so far
 import numpy as np
 
 A = np.array([[0, 0, 0],
