@@ -51,3 +51,36 @@ np.random.randint(start,stop,num)# getting the integer values between the specif
 #when we have a specific choice
 np.random.choice(range(1,50),size=6,replace=False) # here replace=False means we need no repetition in our choices  
 
+#Section 6
+#saving into binary file the array and then reloading it
+np.save('abc.npy',A)
+A=np.load('abc.npy') 
+#basically dumps and loads
+#similarly we have for text files
+np.savetxt(filename='abc.txt',X=A)
+A=np.loadtxt('abc.txt')
+
+#converting an array to a list
+#***** most usefult function
+A.tolist()
+
+A[::-1] #reverses the array in python + slicing is supported in array
+newrow = [1, 2, 3]
+A = numpy.vstack([A, newrow]) #appending a row in numpy
+
+np.pad(A, pad_width=1, constant_values=0) #padding / adding values to the boundaries of the array
+
+A[::2, ::2] = 10 #We can assign the values likewise using slicing
+A[1::2, ::2] = 5 # This is appropriate way to set the data 
+
+C=np.append(A,B,axis=0) #we will get the appended values inside the newly created C
+
+#intersection of values in two numpy array
+C= np.intersect1d(A, B)
+
+#to get the unique values of the numpy array
+C=np.unique(A) 
+
+#printing the maximum of each row/col 
+np.argmax(A,axis=0) #returns list of indexes where the maximum element can be found
+np.max(A,axis=0) #returns the maximum element in each row/column based on axis 
