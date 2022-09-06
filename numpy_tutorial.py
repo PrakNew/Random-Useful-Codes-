@@ -51,7 +51,7 @@ np.random.randint(start,stop,num)# getting the integer values between the specif
 #when we have a specific choice
 np.random.choice(range(1,50),size=6,replace=False) # here replace=False means we need no repetition in our choices  
 
-#Section 6
+#---------------------------------------------------------------------------------------------------------------------------Section 6
 #saving into binary file the array and then reloading it
 np.save('abc.npy',A)
 A=np.load('abc.npy') 
@@ -85,7 +85,7 @@ C=np.unique(A)
 np.argmax(A,axis=0) #returns list of indexes where the maximum element can be found
 np.max(A,axis=0) #returns the maximum element in each row/column based on axis 
 
-#Section 7 started
+#----------------------------------------------------------------------------------------------------------------Section 7 started
 A=np.sort(A,axis=1) #sorting in terms of column or row in numpy
 
 #finding all rows and columns based on codition 
