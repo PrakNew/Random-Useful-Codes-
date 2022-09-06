@@ -84,3 +84,35 @@ C=np.unique(A)
 #printing the maximum of each row/col 
 np.argmax(A,axis=0) #returns list of indexes where the maximum element can be found
 np.max(A,axis=0) #returns the maximum element in each row/column based on axis 
+
+#Section 7 started
+A=np.sort(A,axis=1) #sorting in terms of column or row in numpy
+
+#finding all rows and columns based on codition 
+A[A>8] #applying conditions over there inside brackets
+
+np.where(A>10.0,11.0,A) #used where we have to replace the given value applying the condition 
+
+np.ravel(A) #flattens the numpy array into single array
+
+np.zeros_like(A) #create a similar size array with all the values as zeros
+
+np.full_like(A,1) #same as above just putting a constant values instead of zeros
+
+'''[[1. 0. 0. 0. 0.]
+ [1. 1. 0. 0. 0.]
+ [1. 1. 1. 0. 0.]
+ [1. 1. 1. 1. 0.]
+ [1. 1. 1. 1. 1.]]
+''' 
+#creating an array like this
+
+np.tri(5,5) or np.tri(N=5) 
+
+#creating an array of random integers within a specific range and specific size
+
+np.random.randint(low=0,high=256,size(200,300),dtype = np.uint8)
+
+
+
+
