@@ -113,6 +113,15 @@ np.tri(5,5) or np.tri(N=5)
 
 np.random.randint(low=0,high=256,size(200,300),dtype = np.uint8)
 
+#-------------------------------------------------------------------------------------------------------- Section 8
+np.expand_dims(A,axis=0) #increases the dimention like (2,3)->(1,2,3) 2D changed to 3D
+
+np.squeeze(A,axis=0) #decreases 1 dimention like (1,2,3)->(2,3) 3D->2D
+
+#*** fetch out the values of specific column or columns 
+A[:,1] #fecth out whole first column as a series
+A[:[1,5]] #fetch out the first and the fifth column 
+#similarily we can do for rows
 
 
 
