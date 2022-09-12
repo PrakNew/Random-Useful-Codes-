@@ -28,6 +28,7 @@ df.drop_duplicates(subset=['col1'],keep=False)#removing duplicates from a partic
 del df['one']==df.pop('one') #column wise
 
 df = df.append(df2)#same columns will be appended else the NAN will be present in the place which is not given
+#***** this method has be depricated and now we only use pd.concat() function axis=0 instead to do all this appending of dataframes
 
 df.values #this refers to a normal row of data in a list format but if it is used inside a loop of iterrows and done like rows.values[1] this means second element of each row
 ------------------------------------------------------------------------------------------
