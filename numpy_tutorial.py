@@ -123,5 +123,23 @@ A[:,1] #fecth out whole first column as a series
 A[:[1,5]] #fetch out the first and the fifth column 
 #similarily we can do for rows
 
+#-------------------------------------------------------------------------------------------------------- Section 9
+np.concatenate((A,B),axis=0) #concatinating 2 arrays 
+
+np.column_stack((A,B)) #convert column to rows basically does the transpose
+
+a,b,c=np.split(A,[2,6],axis=1) #spliting basically into different parts 
+
+np.count_nonzero(A) #returns the count of non zero element
+
+np.set_printoptions(precision=4) #setting the precison to a specific value to all the float elements
+np.set_printoptions(suppress=True,precision=8)#similar as above just supressing mathematical notations
+np.set_printoptions(edgeitems=10) #setting edgeitems here.
+
+#** removes|Deletes particular column/row from the numpy array
+np.delete(A,[2],axis=1) #3rd column will be deleted
+
+np.linalg.norm(A) #calculate the norm of the array
+
 
 
