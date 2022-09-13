@@ -141,5 +141,5 @@ np.delete(A,[2],axis=1) #3rd column will be deleted
 
 np.linalg.norm(A) #calculate the norm of the array
 
-
+#------------------------------------------------------------------------------------------------------------ Section 11
 
