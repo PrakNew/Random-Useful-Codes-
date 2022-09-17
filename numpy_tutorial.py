@@ -24,6 +24,7 @@ np.ones(shape=(10, 10), dtype='float') * 255 # this is equivalent to the above f
 
 
 a=np.arange(10,100) # for creating a array of a specific range
+np.arange('2021-01-01', '2021-02-01', dtype='datetime64[D]') #this also works here
 #always assign the reshape to the variable
 a=a.reshape((9,10))
 
@@ -171,4 +172,34 @@ np.linalg.inv(A) #inverse
 #Trace of array i.e sum of diagonal 
 np.trace(A)
 
+#-------------------------------------------------Section 11
+#randomly shuffle the values inside array
+np.random.shuffle(A[1:]) #**** no need to make it equal to A it will automatically change the values inside the Array
+#[1:] means keeping first row same and below values shuffle
 
+#indexes that would sort an array 
+np.argsort(A)
+
+#rounding values to n decimal places 
+np.round(A,decimals=3)
+
+#**********calculating the roots of a polynomial equation
+W = np.array([4, 5, 1]) #this is equivalent to (4x**2+ 5x + 1)
+print(np.roots(W))
+
+# Polynomial addition 
+W = np.array([4, 5, 1])
+Q = np.array([2, 4, -5, 1])
+ 
+print(np.polyadd(W, Q))
+print(np.polysub(W, Q))
+print(np.polymul(W, Q))
+print(np.polyadd(W, 2 * Q))
+
+#** sign function returning if the number is positive negative or zero
+np.sign(A)
+
+#*** printing todays date
+np.datetime64('today')
+
+#----------------------------------------Section 12
