@@ -141,5 +141,34 @@ np.delete(A,[2],axis=1) #3rd column will be deleted
 
 np.linalg.norm(A) #calculate the norm of the array
 
-#------------------------------------------------------------------------------------------------------------ Section 11
+#------------------------------------------------------------------------------------------------------------ Section 10
+#*****arithmetic mean element wise not whole
+(A+B)/2 or np.divide(np.add(A,B),2)
+
+#*** element wise multiplication 
+A*B or np.multiply(A,B)
+
+#*** element wise square root
+np.sqrt(A)
+
+#*** element wise power
+A**2 or np.power(A,2)
+
+#sine/cosine and all trigos
+np.sin(A)/np.cos(A)
+
+#compare 2 numpy arrays as element wise equal within a tolerance
+np.allclose(A,B)
+
+#*** Matrix multiplication 
+A@B or np.dot(A,B) or A.dot(B)
+
+#determinant calculation 
+np.linalg.det(A)
+np.linalg.eig(A) #eigen values
+np.linalg.inv(A) #inverse 
+
+#Trace of array i.e sum of diagonal 
+np.trace(A)
+
 
