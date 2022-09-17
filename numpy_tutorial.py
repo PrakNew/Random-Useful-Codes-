@@ -229,4 +229,35 @@ np.char.startswith(A,'a')
 A.astype(float).sum()
 
 #--------------------------------------------Section 13
+np.savetxt(
+    fname='wig_games.csv', X=wig_games, fmt='%s', delimiter=','
+)
+wig_games_new = np.loadtxt(
+    fname='wig_games.csv', delimiter=',', dtype=str
+)
+# saving and retriving the data in file
+
+
+#appending in array
+a = np.array([[1,2,3],[4,5,6]]) 
+np.append(a, [7,8,9])  #[1 2 3 4 5 6 7 8 9]
+np.append(a, [[7,8,9]],axis = 0) 
+'''[[1 2 3]
+ [4 5 6]
+ [7 8 9]]'''
+
+#Numpy joining arrays
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+arr = np.concatenate((arr1, arr2)) #simgle array
+arr = np.stack((arr1,arr2),axis=0) #same result as above
+arr = np.hstack((arr1,arr2)) #stacking along horizontal rows
+arr = np.vstack((arr1,arr2)) #stacking along vertical columns
+#----vstack will create a 2D array of above and give
+'''
+[[1 2 3]
+ [4 5 6]]'''
+arr = np.dstack((arr1,arr2)) # same as above of stack but with axis=1
+
+
 
