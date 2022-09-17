@@ -203,3 +203,30 @@ np.sign(A)
 np.datetime64('today')
 
 #----------------------------------------Section 12
+#concatinating element wise 
+np.char.add(A,B) #A,B should be of dtype np.str
+
+#cocatinating something at the beginning of each element
+np.char.add('000',A) or np.char.rjust(A,4,fillchar='0') or np.char.zfill(A,4)
+
+#splitting like a string
+np.char.split(A) #return list of list
+
+#striping
+np.char.strip(A)
+
+#replacing
+np.char.replace(A,'#',' ')
+
+#counting a string element wise 
+np.char.count(A,'abc')
+
+#startswith
+np.char.startswith(A,'a')
+
+
+#************** converting the type and applying a function 
+A.astype(float).sum()
+
+#--------------------------------------------Section 13
+
