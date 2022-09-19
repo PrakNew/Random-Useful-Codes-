@@ -50,5 +50,33 @@ companies = pd.DataFrame(data=data_dict)
 companies.set_index('company')
 
 
+#------------------------------------------------------------------------Section 16
+#date time in pandas
+date_range = pd.date_range(start='2020-01-01', periods=31)
+date_range = pd.date_range(start='2020-01-01', end='2020-01-31')
+
+df['day'].dt.dayofyear #we can apply this function on the datetime series we have fetched
+
+#******
+df.head(10) #returns the first ten element
+df.tail()  #by default 5 rows and that too from last
+
+#basic informatin
+df.info()
+
+#** all the information like mean average etc of each column in the dataframe
+df.describe()
+
+#unique value counts
+df['binomial'].value_counts() #returns the unique elements along its count works only with series
+
+
+#************************** saving the file to csv
+df.to_csv('file.csv',sep=',') #by default also the seperator is comma
+
+#************************** reading CSV
+df_new=pd.read_csv('abc.csv',index_col=0)
+
+
 
  
