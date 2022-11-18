@@ -4,7 +4,7 @@ from pydantic import BaseModel
 
 
 app = FastAPI()
-#uvicorn myapi:app --reload
+#uvicorn FastAPI_totorial:app --reload
 
 class Student(BaseModel):
     name : str
