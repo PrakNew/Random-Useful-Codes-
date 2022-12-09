@@ -4,6 +4,10 @@ virtualenv foo
 cd .\foo
 .\Scripts\activate
 
+#Creating and installing from requirements.txt file
+pip freeze > requirements.txt
+pip install -r requirements.txt
+
 # Commmand line
 python -m http.server
 
