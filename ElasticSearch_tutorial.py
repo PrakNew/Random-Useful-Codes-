@@ -31,6 +31,11 @@ es.index(index='testing', id=23, document={
     "address": "56"
 })
 
+#BULK insertion of data
+from elasticsearch.helpers import bulk
+#actions = [{...},{...},...]
+bulk(es,actions,index='school',doc_type='people')
+
 # List all the indices in the ElasticSearch
 #GET /_cat/indices
 print(es.indices.get_alias().keys())
