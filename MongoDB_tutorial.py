@@ -34,11 +34,6 @@ results = collection.updata_many({"_id":5},{"$set":{"name":"tim"}})
 post_count = collection.count_documents({}) #count all --> select count(*) from db
 
 #datetime insertion
-from pymongo.mongo_client import MongoClient
 import datetime
-
 d = datetime.datetime.strptime("2017-10-13T10:53:53.000Z", "%Y-%m-%dT%H:%M:%S.000Z")
-
-with MongoClient() as mongo:
-    db = mongo.get_database("test")
-    db['dates'].insert({"date" : d})
+collection.insert_one({"date":d})
