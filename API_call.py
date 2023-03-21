@@ -8,6 +8,7 @@ def somthing():
         pwd= "password"
         global snow_getresponse_json
         myrequst= requests.get(url,auth=(user,pwd))
+        myrequest = requests.get(url,json=data).json() #-----------when data is given as dictionary similarly we can do with post requests
         snow_getresponse_json = json.loads(myrequst.content)
         print(type(snow_getresponse_json))
         response_result_list = snow_getresponse_json["result"]
