@@ -29,6 +29,11 @@ results = collection.delete_many({"_id":1})
 #Updating
 results = collection.updata_one({"_id":5},{"$set":{"name":"tim"}})
 results = collection.updata_many({"_id":5},{"$set":{"name":"tim"}})
+results = collection.update_one(
+    filter={"user":data['user'],"following":data['following']},
+    update={"$set":data},
+    upsert=True
+) # Upserting the data 
 
 #Counting
 post_count = collection.count_documents({}) #count all --> select count(*) from db
