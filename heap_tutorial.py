@@ -1,3 +1,4 @@
+#it always follows min heap so in order to get the max heap we need to multiply each element by -1
 import heapq
 N=int(input())
 l=list(map(int,input().rstrip().split()))
