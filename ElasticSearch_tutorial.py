@@ -9,6 +9,10 @@ es = Elasticsearch([{'host': 'localhost', 'port': 9200,
 # check the connectivity of the elastic search
 print(es.ping())
 
+# Getting the mapping of any index
+mapping= es_client.indices.get_mapping(index="test_tweets_data_1")
+print(mapping)
+
 # Deleting
 #DELETE /testing/22
 # deleting the data from the index testing --->DELETE /testing/22
