@@ -50,34 +50,41 @@ line 38
 
 
 # Calling method of a class using decorator
-
 import time
 import functools
 
 
-def func2(func1):
-    print("Inside func2")
+def test_func(funct24):
+    def func2(func1):
+        print("Inside func2")
 
-    def call(self, *args, **kwargs):
-        print("line 9")
-        try:
-            func1(self, *args, **kwargs)
-        except Exception as e:
-            print(e)
+        def call(self, *args, **kwargs):
+            print("line 9")
+            # funct24 = MyClass.funct24
+            try:
+                func1(self, *args, **kwargs)
+            except Exception as e:
+                print(e)
+                funct24(self)
 
-    return call
+        return call
+
+    return func2
 
 
 class MyClass:
     def __init__(self):
         pass
 
-    @func2
-    def func1(self):
-        print("Inside func1")
+    def func24(self, a=24):
+        print("Inside func24")
+
+    @test_func(func24)
+    def func12(self):
+        print("Inside func12")
         1 / 0
 
 
 if __name__ == "__main__":
     my_class = MyClass()
-    my_class.func1()
+    my_class.func12()
