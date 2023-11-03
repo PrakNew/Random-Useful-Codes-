@@ -46,3 +46,38 @@ print(num())
 line 30
 line 38
 400'''
+
+
+
+# Calling method of a class using decorator
+
+import time
+import functools
+
+
+def func2(func1):
+    print("Inside func2")
+
+    def call(self, *args, **kwargs):
+        print("line 9")
+        try:
+            func1(self, *args, **kwargs)
+        except Exception as e:
+            print(e)
+
+    return call
+
+
+class MyClass:
+    def __init__(self):
+        pass
+
+    @func2
+    def func1(self):
+        print("Inside func1")
+        1 / 0
+
+
+if __name__ == "__main__":
+    my_class = MyClass()
+    my_class.func1()
