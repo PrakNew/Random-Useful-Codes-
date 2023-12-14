@@ -50,3 +50,25 @@ response = requests.request("POST", url, headers=headers, data=payload)
 
 print(response.text)
 
+#----------------------------------------------------------------Thread test
+import requests
+import json
+from threading import Thread
+
+
+url = "http://172.17.12.2:12000/test"
+
+
+def test(x: int):
+    payload = json.dumps({"number": x})
+    response = requests.request("POST", url, headers=headers, data=payload)
+
+    print(response.text)
+
+
+headers = {"Content-Type": "application/json"}
+for x in range(10):
+    t1 = Thread(target=test, args=(x,))
+    t1.start()
+    # t1.join()
+print("Here 21")
