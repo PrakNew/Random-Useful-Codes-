@@ -79,6 +79,7 @@ except ValidationError as e:
 
 
 #More precise example 
+#Pydantic version used pydantic==1.10.10
 
 from typing import Optional, List, Union
 from datetime import datetime, timezone
