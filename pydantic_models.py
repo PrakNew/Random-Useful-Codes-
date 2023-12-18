@@ -65,9 +65,102 @@ class Followers(BaseModel):
     
 result = Followers(**{"minimum":10,"maximum":2000})
 print(result)
+
+
+
+# Method 2 for parsing in pydantic model
 data = {"minimum":10,"maximum":2000}
 try:
     model = Followers.parse_obj(data)
     print(model.dict())
 except ValidationError as e:
     print(e)
+
+
+
+#More precise example 
+
+from typing import Optional, List, Union
+from datetime import datetime, timezone
+from dateutil.parser import parse as dt_parser
+import uuid
+
+import orjson
+from pydantic import (
+    validator,
+    root_validator,
+    Field,
+    BaseModel as PydanticBaseModel,
+)
+
+from modules.common.loggers import STACKTRACE_LOGGER, COMMON_LOGGER
+
+
+# -- HELPERS --
+def orjson_dumps(v, *, default):
+    # orjson.dumps returns bytes, to match standard json.dumps we need to decode
+    return orjson.dumps(v, default=default).decode()
+
+
+def check_datetime_format(v: Union[str, datetime]):
+    if not v or v in ("", None):
+        return v
+
+    if not isinstance(v, datetime):
+        try:
+            v = dt_parser(v)
+        except Exception as error:
+            STACKTRACE_LOGGER.warning(error)
+            raise ValueError(f"Unsupported date[time] format: {v}")
+    if not v.tzinfo:
+        v = v.replace(tzinfo=timezone.utc)
+    return v
+
+
+def remove_leading_special_chars(v: Union[str, List[str]]):
+    print("V:", v)
+    if not v or v in ("", None):
+        return v
+
+    if isinstance(v, list):
+        v = [_v.lstrip("#@") for _v in v]
+    else:
+        v = v.lstrip("#@")
+    print("V:", v)
+    return v
+
+
+# -- MODELS --
+class BaseModel(PydanticBaseModel):
+    class Config:
+        json_loads = orjson.loads
+        json_dumps = orjson_dumps
+
+
+class AccountsRecord(BaseModel):
+    uid: str
+    account_type: str
+    account_type_name: str
+    creds_type: str
+    status: str
+    creds: dict
+    config: Optional[dict]
+    is_locked: bool
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
+
+    @root_validator(pre=True)
+    def create_unique_id(cls, values):
+        hash_text = (
+            values.get("account_type", "")
+            + values.get("account_type_name")
+            + values.get("creds", {}).get("account_name", "")
+        )
+        hash_value = uuid.uuid5(uuid.NAMESPACE_URL, hash_text)
+        values["uid"] = hash_value
+        return values
+
+    _format_dates = validator("created_at", "updated_at", pre=True, allow_reuse=True)(
+        check_datetime_format
+    )
+
