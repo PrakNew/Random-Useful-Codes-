@@ -164,3 +164,9 @@ class AccountsRecord(BaseModel):
         check_datetime_format
     )
 
+data = {--some data to be validated--}
+try:
+    model = models.AccountsRecord.parse_obj(data)
+    print(model.dict(include={"account_type","uid"}))
+except ValidationError as e:
+    print(e)
