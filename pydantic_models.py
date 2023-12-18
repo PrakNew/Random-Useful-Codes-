@@ -65,3 +65,9 @@ class Followers(BaseModel):
     
 result = Followers(**{"minimum":10,"maximum":2000})
 print(result)
+data = {"minimum":10,"maximum":2000}
+try:
+    model = Followers.parse_obj(data)
+    print(model.dict())
+except ValidationError as e:
+    print(e)
