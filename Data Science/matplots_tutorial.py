@@ -28,3 +28,6 @@ plt.boxplot(sales_list)
 
 #pie chart
 plt.pie(city_values,labels=city_names,autopct="%.2f%%")
+
+#Scatter chart
+plt.scatter(s_list, c_list)
