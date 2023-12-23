@@ -17,3 +17,11 @@ plt.plot(x_days,y_price1,label = "Stock 1")
 plt.legend(loc=2, fontsize=12)
 
 plt.show()
+
+
+# histogram
+plt.hist(age_list,bins,histtype="bar",rwidth=0.9)
+
+
+#boxplot
+plt.boxplot(sales_list)
