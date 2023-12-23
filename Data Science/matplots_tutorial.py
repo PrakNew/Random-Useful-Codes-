@@ -18,6 +18,14 @@ plt.legend(loc=2, fontsize=12)
 
 plt.show()
 
+#plot all the plots alongside
+plt.figure() #before creating any chart
+
+#saving the figure
+plt.savefig("images/abcd.png")
+
+#subplot in a grid way
+plt.subplot(2,2,1) #means 2*2 grid and 1st position
 
 # histogram
 plt.hist(age_list,bins,histtype="bar",rwidth=0.9)
