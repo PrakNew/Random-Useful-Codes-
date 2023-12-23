@@ -27,6 +27,9 @@ plt.savefig("images/abcd.png")
 #subplot in a grid way
 plt.subplot(2,2,1) #means 2*2 grid and 1st position
 
+#tight layout so that no overfigures
+plt.tight_layout()
+
 # histogram
 plt.hist(age_list,bins,histtype="bar",rwidth=0.9)
 
