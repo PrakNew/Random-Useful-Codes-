@@ -25,3 +25,6 @@ plt.hist(age_list,bins,histtype="bar",rwidth=0.9)
 
 #boxplot
 plt.boxplot(sales_list)
+
+#pie chart
+plt.pie(city_values,labels=city_names,autopct="%.2f%%")
