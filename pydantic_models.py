@@ -147,8 +147,8 @@ class AccountsRecord(BaseModel):
     creds: dict
     config: Optional[dict]
     is_locked: bool
-    created_at: Optional[datetime] = None
-    updated_at: Optional[datetime] = None
+    created_at: Optional[datetime] = Field(default_factory=datetime.utcnow)
+    updated_at: Optional[datetime] = Field(default_factory=datetime.utcnow)
 
     @root_validator(pre=True)
     def create_unique_id(cls, values):
@@ -167,7 +167,7 @@ class AccountsRecord(BaseModel):
 
 data = {--some data to be validated--}
 try:
-    model = models.AccountsRecord.parse_obj(data)
+    model = models.AccountsRecord.parse_obj(data) #models.AccountsRecord(**data)
     print(model.dict(include={"account_type","uid"}))
 except ValidationError as e:
     print(e)
